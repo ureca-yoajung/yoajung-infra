@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: spring-deployment
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-app
+
+  template:
+    metadata:
+      labels:
+        app: backend-app
+
+    spec:
+      containers:
+        - name: spring-container
+          image: yoajung-server
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: MYSQL_URL
+              valueFrom:
+                secretKeyRef:
+                  key: db-url
+                  name: server-secret
+
+            - name: MYSQL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: db-username
+                  name: server-secret
+
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: db-password
+                  name: server-secret
+
+            - name: REDIS_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: redis-host
+                  name: server-secret
+
+            -  name: REDIS_PORT
+               valueFrom:
+                 secretKeyRef:
+                   key: redis-port
+                   name: server-secret
+
+            - name: MAIL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: mail-username
+                  name: server-secret
+
+            - name: MAIL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: mail-password
+                  name: server-secret
+
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: open-ai-key
+                  name: server-secret
+
+            - name: REST_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: rest-api-key
+                  name: server-secret
+
+            - name: REDIRECT_URI
+              valueFrom:
+                secretKeyRef:
+                  key: redirect-url
+                  name: server-secret

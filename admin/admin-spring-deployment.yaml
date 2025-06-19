@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: admin-spring-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-backend-app
+
+  template:
+    metadata:
+      labels:
+        app: admin-backend-app
+
+    spec:
+      containers:
+        - name: spring-container
+          image: yoajung-admin
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+
+          env:
+            - name: MYSQL_URL
+              valueFrom:
+                secretKeyRef:
+                  key: db-url
+                  name: server-secret
+
+            - name: MYSQL_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: db-username
+                  name: server-secret
+
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: db-password
+                  name: server-secret
+
+            - name: S3_ACCESSKEY
+              valueFrom:
+                secretKeyRef:
+                  key: s3-access
+                  name: server-secret
+
+            - name: S3_SECRETKEY
+              valueFrom:
+                secretKeyRef:
+                  key: s3-secret
+                  name: server-secret
