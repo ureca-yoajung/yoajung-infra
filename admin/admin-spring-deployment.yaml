@@ -53,3 +53,9 @@ spec:
                 secretKeyRef:
                   key: s3-secret
                   name: server-secret
+
+            - name: DIFY_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: dify-key
+                  name: server-secret
