@@ -59,3 +59,9 @@ spec:
                 secretKeyRef:
                   key: dify-key
                   name: server-secret
+
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: open-ai-key
+                  name: server-secret
