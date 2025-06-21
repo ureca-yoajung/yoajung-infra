@@ -1,5 +1,3 @@
-# yoajung-infra
-
 ## 프로젝트 개요
 - Spring Boot 기반의 `yoajung` 프로젝트를 Kubernetes 환경에 배포하기 위한 인프라 구성입니다. 
 - 오브젝트를 디렉토리 단위로 구분하여 유지보수가 용이하도록 구성했습니다.
@@ -45,7 +43,6 @@ stringData:
 
 3. secret object 등록
 ```bash
-kubectl apply -f server-secret.yaml
 kubectl apply -f server-secret.yaml
 ```
 
