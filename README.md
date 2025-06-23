@@ -2,6 +2,11 @@
 - Spring Boot 기반의 `yoajung` 프로젝트를 Kubernetes 환경에 배포하기 위한 인프라 구성입니다. 
 - 오브젝트를 디렉토리 단위로 구분하여 유지보수가 용이하도록 구성했습니다.
 
+## 팀원 소개
+| 이름   | 역할      | 주요 구현 내용                          | GitHub                                             |
+|------- |-------------|-----------------------------------|----------------------------------------------------|
+| 이재윤 | Infra     | Kubernetes 기반 인프라 구성 및 배포 설정 | <a href="https://github.com/iju42829"><img src="https://avatars.githubusercontent.com/u/116072376?v=4" width="100" height="100" alt="iju42829" /></a>         |
+
 ## 실행 방법
 1. yoajung-admin, yoajung-server docker build
 - 각 리포지토리를 클론한 후, 해당 디렉토리에서 아래 명령어를 실행하여 Docker 이미지를 빌드합니다.
